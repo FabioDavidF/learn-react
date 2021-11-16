@@ -1,14 +1,16 @@
-
 import { useRef } from 'react';
+import { useHistory } from 'react-router-dom'
 import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
-const axios = require('axios').default;
+
 
 function NewMeetupForm(props) {
     const titleInputRef = useRef();
     const imageInputRef = useRef();
     const addressInputRef = useRef();
     const descriptionInputRef = useRef();
+
+    const history = useHistory();
 
     function submitHandler(event) {
 
@@ -31,7 +33,10 @@ function NewMeetupForm(props) {
             body: JSON.stringify(meetupData)
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            history.replace('/')
+        })
         
     }
 
