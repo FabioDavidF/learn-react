@@ -5,7 +5,7 @@ function NewMeetupPage() {
     return (
         <section>
             <h1>New Meetup</h1>
-            <NewMeetupForm />
+            <NewMeetupForm fetchUrl="locahlost:8000"/>
         </section>
     )
 }

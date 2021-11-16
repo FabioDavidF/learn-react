@@ -2,8 +2,9 @@
 import { useRef } from 'react';
 import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
+const axios = require('axios').default;
 
-function NewMeetupForm() {
+function NewMeetupForm(props) {
     const titleInputRef = useRef();
     const imageInputRef = useRef();
     const addressInputRef = useRef();
@@ -25,7 +26,13 @@ function NewMeetupForm() {
             description: enteredDescription
         };
 
-        console.log(meetupData)
+        fetch("http://localhost:8000/api/add-meetup", {
+            method: "POST",
+            body: JSON.stringify(meetupData)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        
     }
 
     return <Card>
