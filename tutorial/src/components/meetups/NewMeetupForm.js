@@ -31,22 +31,22 @@ function NewMeetupForm() {
     return <Card>
         <form className={classes.form} onSubmit={submitHandler}>
             <div className={classes.control}>
-                <label for="title">Meetup Title</label>
+                <label htmlFor="title">Meetup Title</label>
                 <input type="text" required id="title" ref={titleInputRef}/>
             </div>
 
             <div className={classes.control}>
-                <label for="image">Image URL</label>
+                <label htmlFor="image">Image URL</label>
                 <input type="url" required id="image" ref={imageInputRef} />
             </div>
 
             <div className={classes.control}>
-                <label for="address">Address</label>
+                <label htmlFor="address">Address</label>
                 <input type="text" required id="address" ref={addressInputRef} />
             </div>
 
             <div className={classes.control}>
-                <label for="Description">Description</label>
+                <label htmlFor="Description">Description</label>
                 <textarea required id="Description" rows="5" ref={descriptionInputRef}></textarea>
             </div>
 

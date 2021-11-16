@@ -5,22 +5,14 @@ import Backdrop from "./Backdrop";
 function Todo(props) {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  function openModal() {
-    setModalIsOpen(true);
-  }
-
-  function closeModal() {
-    setModalIsOpen(false);
-  }
-
+  
     return (
     <div className="card">
       <h2>{props.text}</h2>
       <div className="actions">
-        <button className="btn" onClick={openModal}>{props.button_text}</button>
+        <button className="btn" onClick={() => setModalIsOpen(true)}>{props.button_text}</button>
       </div>
-      { modalIsOpen && <Modal onCancel={closeModal} onConfirm={closeModal}/> }
+      { modalIsOpen && <Modal setModalIsOpen={setModalIsOpen}/> }
       { modalIsOpen && <Backdrop onClick={closeModal}/> }  
     </div>
     );
