@@ -16,8 +16,14 @@ def add_meetup(request):
     response.headers["Access-Control-Allow-Origin"] = "*"
     return response
 
+
 def get_meetups(reqeust):
     with open("dummy_data.json") as json_file:
         json_object = json.loads(json_file.read())
+        print(type(json_object))
     
-    return HttpResponse(json_object, status=200)
+    response = JsonResponse(json_object, status=200, safe=False)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+
+    
+    return response
